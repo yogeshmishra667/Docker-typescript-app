@@ -10,6 +10,10 @@ const taskSchema = new mongoose.Schema({
   task: {
     type: String,
     required: [true, 'please tell us your name'],
+  },
+  completed: {
+    type: Boolean,
+    default: false,
   }
 });
 

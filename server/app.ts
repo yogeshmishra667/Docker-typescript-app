@@ -13,6 +13,9 @@ const AppError = require('./utils/appError');
 
 const app = express();
 
+//for handle CORS origin error
+app.use(cors()); 
+
 // 1) middleware
 // 1.1) custom middleware/ GLOBAL MIDDLEWARE
 
@@ -26,7 +29,7 @@ if (process.env.NODE_ENV === 'development') {
 
 //limit request from same API
 const limiter = rateLimit({
-  max: 500,
+  max: 6000,
   windowMs: 60 * 60 * 1000,
   message: 'Too many requests from this IP, please try again in an hour!',
 });
@@ -56,8 +59,7 @@ app.use(
   })
 );
 
-//for handle CORS origin error
-app.use(cors()); // Use this after the variable declaration
+
 
 //2) ROUTES
 //always use mounting after the declare the variable ⬇️
