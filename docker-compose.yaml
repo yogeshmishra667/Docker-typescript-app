@@ -1,0 +1,58 @@
+version: "4"
+services:
+  # SETUP SERVER CONTAINER
+  server:
+    build: 
+      context: './server'
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+      - MONGO_URI=${MONGO_URI}
+    ports:
+      - ${PORT}:${PORT}
+    container_name: server-container
+    #network
+    volumes:
+      - ./server:/app/server  # Map client src to server src to hot reload
+    command: nodemon -L server.js
+    depends_on: 
+      - mongo
+    restart: always
+
+# SETUP CLIENT CONTAINER
+
+  client:
+    build: 
+      context: ./client # path to the client folder
+      dockerfile: Dockerfile 
+    environment:
+      - ${REACT_APP_PORT}=${REACT_APP_PORT}
+      - WATCHPACK_POLLING=true  # for hot reload reactpage in browser
+    container_name: client-container # name of the container 
+    ports:
+      - ${REACT_APP_PORT}:${REACT_APP_PORT} # port to expose
+    volumes:
+      - ./client/src:/app/client/src # Map client src to server src to hot reload
+      - ./client/public:/app/client/public 
+    depends_on: # wait for the server to start before starting the client
+      - server
+    command: npm start # start the client
+    restart: always
+
+# SETUP DB CONTAINER
+  mongo:
+    image: mongo 
+    container_name: mongo-container
+
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}	
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - board-dbdata:/data/db # Map the db data to a volume so it persists between restarts and rebuilds of the container 
+volumes:
+  ? board-dbdata 
+

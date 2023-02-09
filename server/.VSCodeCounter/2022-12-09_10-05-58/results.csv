@@ -1,0 +1,24 @@
+"filename", "language", "JSON with Comments", "JSON", "JavaScript", "Markdown", "comment", "blank", "total"
+"d:\book-directory-app\server\.eslintrc.json", "JSON with Comments", 25, 0, 0, 0, 0, 1, 26
+"d:\book-directory-app\server\.prettierrc", "JSON", 0, 3, 0, 0, 0, 1, 4
+"d:\book-directory-app\server\Controllers\authController.js", "JavaScript", 0, 0, 168, 0, 42, 32, 242
+"d:\book-directory-app\server\Controllers\bookController.js", "JavaScript", 0, 0, 176, 0, 22, 22, 220
+"d:\book-directory-app\server\Controllers\errorController.js", "JavaScript", 0, 0, 57, 0, 12, 15, 84
+"d:\book-directory-app\server\Controllers\userController.js", "JavaScript", 0, 0, 105, 0, 22, 23, 150
+"d:\book-directory-app\server\Model\booksModel.js", "JavaScript", 0, 0, 104, 0, 8, 2, 114
+"d:\book-directory-app\server\Model\userModel.js", "JavaScript", 0, 0, 93, 0, 21, 21, 135
+"d:\book-directory-app\server\README.md", "Markdown", 0, 0, 0, 1, 0, 1, 2
+"d:\book-directory-app\server\Routes\booksRoutes.js", "JavaScript", 0, 0, 48, 0, 4, 6, 58
+"d:\book-directory-app\server\Routes\stripe.js", "JavaScript", 0, 0, 0, 0, 0, 2, 2
+"d:\book-directory-app\server\Routes\userRoutes.js", "JavaScript", 0, 0, 35, 0, 4, 5, 44
+"d:\book-directory-app\server\app.js", "JavaScript", 0, 0, 61, 0, 19, 20, 100
+"d:\book-directory-app\server\dev-data\data\book-sample.json", "JSON", 0, 121, 0, 0, 0, 1, 122
+"d:\book-directory-app\server\dev-data\data\import-dev-data.js", "JavaScript", 0, 0, 38, 0, 3, 8, 49
+"d:\book-directory-app\server\package-lock.json", "JSON", 0, 7277, 0, 0, 0, 1, 7278
+"d:\book-directory-app\server\package.json", "JSON", 0, 44, 0, 0, 0, 1, 45
+"d:\book-directory-app\server\server.js", "JavaScript", 0, 0, 24, 0, 2, 7, 33
+"d:\book-directory-app\server\utils\apiFeatures.js", "JavaScript", 0, 0, 41, 0, 2, 12, 55
+"d:\book-directory-app\server\utils\appError.js", "JavaScript", 0, 0, 10, 0, 0, 4, 14
+"d:\book-directory-app\server\utils\catchAsync.js", "JavaScript", 0, 0, 3, 0, 0, 1, 4
+"d:\book-directory-app\server\utils\email.js", "JavaScript", 0, 0, 19, 0, 4, 3, 26
+"Total", "-", 25, 7445, 982, 1, 165, 189, 8807

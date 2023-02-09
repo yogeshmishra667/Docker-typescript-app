@@ -1,0 +1,19 @@
+[
+  {
+    "title": "The Alchemist",
+    "Author": "Paulo Coelho",
+    "ISBN": "0062502174",
+    "publisher": "HarperTorch",
+    "publishedDate": "1993-01-05,10:00",
+    "format": "Ebooks",
+    "pageCount": 208,
+    "soldCopies": 3300,
+    "price": 397,
+    "summary": "The Alchemist is a classic novel in which a boy named Santiago embarks on a journey seeking treasure in the Egyptian pyramids after having a recurring dream about it and on the way meets mentors, falls in love, and most importantly, learns the true importance of who he is and how to improve himself and focus on what really matters in life.",
+    "bookCover": "book-1-cover.jpg",
+    "language": "English",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 13,
+    "genre": "Quest"
+  }
+]
