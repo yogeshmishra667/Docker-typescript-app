@@ -15,7 +15,7 @@ services:
     #network
     volumes:
       - ./server:/app/server  # Map client src to server src to hot reload
-    command: nodemon -L server.js
+    command: nodemon -L server.ts
     depends_on: 
       - mongo
     restart: always

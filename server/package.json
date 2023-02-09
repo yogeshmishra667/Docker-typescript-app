@@ -22,6 +22,7 @@
     "mongoose": "^6.5.4",
     "morgan": "^1.10.0",
     "slugify": "^1.6.5",
+    "ts-node": "^10.9.1",
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
   },

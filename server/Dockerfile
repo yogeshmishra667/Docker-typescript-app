@@ -12,4 +12,4 @@ COPY . /app/server/
 
 EXPOSE 8080
 
-CMD ["nodemon", "server.js"]
+CMD ["nodemon", "server.ts"]
