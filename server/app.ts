@@ -1,4 +1,4 @@
-const express = require('express');
+import express, { NextFunction, Request, Response } from 'express'
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
@@ -8,7 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 
 const globalErrorHandler = require('./Controllers/errorController');
-const userRouter = require('./Routes/userRoutes');
+const taskRouter = require('./Routes/taskRoutes');
 const AppError = require('./utils/appError');
 
 const app = express();
@@ -44,22 +44,13 @@ app.use(express.static(`${__dirname}/public`));
 //data sanitization against NoSQL query injection
 app.use(mongoSanitize()); //remove $ and . from req.body and req
 
-app.use(xss()); //clean user input from malicious HTML code and prevent XSS attack (cross site scripting) attack by removing all html tags from user input and replace it with html entities like < to < and > to > and so on and so forth.
-//prevent parameter pollution
+app.use(xss()); //clean user input from malicious HTML code and prevent XSS attack
 
 //prevent parameter pollution
 app.use(
   hpp({
     whitelist: [
-      'name',
-      'email',
-      'password',
-      'passwordConfirm',
-      'role',
-      'passwordChangedAt',
-      'passwordResetToken',
-      'passwordResetExpires',
-      'active',
+        'tasks'
     ],
     //whitelist is an array of fields that we want to allow to be duplicated in the query string
   })
@@ -68,23 +59,18 @@ app.use(
 //for handle CORS origin error
 app.use(cors()); // Use this after the variable declaration
 
-//Test middleware
-app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString();
-  //console.log(req.headers);
-  next();
-});
-
 //2) ROUTES
 //always use mounting after the declare the variable ⬇️
 
-app.use('/api/v1/users', userRouter);
+app.use('/api/v1/task', taskRouter);
 
 //for routes not define
-app.all('*', (req, res, next) =>
+app.all('*', (req:Request, res:Response, next:NextFunction) =>
   next(new AppError(`can't find ${req.originalUrl} on server`, 404))
 );
 
 //GLOBAL ERROR HANDLER
 app.use(globalErrorHandler);
+
+
 module.exports = app;
